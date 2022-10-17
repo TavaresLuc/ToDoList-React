@@ -17,6 +17,15 @@ $ npm install
 # Run
 $ npm start
 
+# Open another terminal to run back-end
+$ Windows + R -> cmd
+
+# Go into the repository
+$ cd todo/data
+
+#Run 
+$ npx json-server --watch db.json -- port 5000
+
 # running on http://localhost:3000/
 ```
 ## 🚀 Technologies
