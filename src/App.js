@@ -3,7 +3,6 @@ import { useState, useEffect} from 'react';
 import {BsTrash, BsBookmarkCheck, BsBookmarkCheckFill} from 'react-icons/bs';
 
 
-
 const API = "http://localhost:5000";
 
 function App() {
@@ -17,18 +16,20 @@ function App() {
     const loadData = async() => {
       setLoading(true);
 
+
       const res = await fetch(API + "/todos")
       .then((res) => res.json())
       .then((data) => data)
       .catch((err) => console.log(err));
-
+     
      setLoading(false); 
-
+    
      setTodos(res);
     };
-
+   
     loadData();
   }, [])
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -95,7 +96,7 @@ function App() {
       <h2> Insira a sua próxima tarefa:</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-control">
-       <label htmlFor="title"> O que você vai fazer?</label>
+       <label className="labelfor" htmlFor="title"> O que você vai fazer?</label>
        <input type="text" name="title" placeholder="Título da tarefa" 
        onChange={(e) => setTitle(e.target.value)}
        value={title || ""}
@@ -103,7 +104,7 @@ function App() {
        />
         </div>
       <div className="form-control">
-       <label htmlFor="time">Duração:</label>
+       <label className="labelfor" htmlFor="time">Duração:</label>
        <input type="text" name="time" placeholder="Tempo estimado" 
        onChange={(e) => setTime(e.target.value)}
        value={time || ""}
